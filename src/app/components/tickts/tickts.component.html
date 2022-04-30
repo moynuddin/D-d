@@ -1,0 +1,27 @@
+<div class="dialog-wrapper">
+  <h1 mat-dialog-title>Create new Ticket</h1>
+  <form [formGroup]="addTicket" (ngSubmit)="handleForm()">
+    <div mat-dialog-content>
+      <mat-form-field class="form-control" appearance="fill">
+        <mat-label>Title</mat-label>
+        <input
+          type="email"
+          formControlName="ticket"
+          matInput
+          placeholder="Ex. Ticket title"
+        />
+      </mat-form-field>
+      <mat-form-field class="form-control">
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
+          formControlName="desc"
+          placeholder="Ex. Ticket discription"
+        ></textarea>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="accent">Add</button>
+    </div>
+  </form>
+</div>

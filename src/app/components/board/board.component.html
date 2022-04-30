@@ -1,0 +1,64 @@
+<section class="wrapper">
+  <div class="brand">Kanban Board</div>
+  <div class="header-wrapper">
+    <div class="board-title">My Board</div>
+    <div class="board-title btn" (click)="handleTask()">
+      <!-- <button mat-button class="board-title btn" (click)="handleTask()"> -->
+      <mat-icon class="icon">add</mat-icon>
+      New Ticket
+    </div>
+  </div>
+  <div class="content-wrapper" cdkDropListGroup>
+    <div
+      class="board"
+      cdkDropList
+      [cdkDropListData]="todos"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="board-name">Todo</div>
+      <div *ngIf="!isClicked">
+        <div
+          class="task"
+          (click)="handleTicket(i)"
+          *ngFor="let todo of todos; index as i"
+          cdkDrag
+        >
+          {{ todo }}
+        </div>
+      </div>
+    </div>
+    <div
+      class="board"
+      cdkDropList
+      [cdkDropListData]="inProgress"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="board-name">In Progress</div>
+      <div class="task" *ngFor="let item of inProgress" cdkDrag>
+        {{ item }}
+      </div>
+    </div>
+    <div
+      class="board"
+      cdkDropList
+      [cdkDropListData]="codeReview"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="board-name">Review</div>
+      <div class="task" *ngFor="let item of codeReview" cdkDrag>
+        {{ item }}
+      </div>
+    </div>
+    <div
+      class="board"
+      cdkDropList
+      [cdkDropListData]="done"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="board-name">Done</div>
+      <div class="task" *ngFor="let item of done" cdkDrag>
+        {{ item }}
+      </div>
+    </div>
+  </div>
+</section>
